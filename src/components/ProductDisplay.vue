@@ -6,7 +6,25 @@
                 price: 75,
                 amount: 0,
                 // subTotal: 0,
-                isAmountGreaterThan3: false
+                isAmountGreaterThan3: false,
+                // colors: [ 'bg-red-500', 'bg-blue-500', 'bg-grey-500' ],
+                colors:  [
+                    {
+                        name: 'merah',
+                        color: 'bg-red-500',
+                        price: 75,
+                    },
+                    {
+                        name: 'biru',
+                        color: 'bg-blue-500',
+                        price: 85
+                    },
+                    {
+                        name: 'abu-abu',
+                        color: 'bg-gray-500',
+                        price: 95
+                    }
+                ]
             }
         },
         methods: {
@@ -14,6 +32,10 @@
                 if (this.amount > 3) {
                     this.isAmountGreaterThan3 = true
                 }
+            },
+            changePrice(clickedColor) {
+                const chosenColorObject = this.colors.find((c) => c.name === clickedColor)
+                this.price = chosenColorObject.price
             }
         },
     }
@@ -33,6 +55,12 @@
                 <p>
                     Introducing the Greyana Sofa. The perfect combination of style and comfort. With its sleek and modern design, this sofa is a statement piece that will elevate any living space. The Greyana Sofa features a stunning grey upholstery that is both soft to the touch and durable for everyday use. Crafted with a sturdy wooden frame and high-density foam cushions, the Greyana Sofa offers unbeatable comfort and support. The seat and back cushions are also removable and reversible, making it easy to maintain and keep looking like new.
                 </p>
+                <div class="mt-10 flex gap-2 w-full">
+                    <div @click="changePrice(color.name)" v-for="(color) in colors" :key="color.name" class="flex gap-1 items-center cursor-pointer">
+                        <div :class="color.color" class="w-4 h-4 rounded-full"></div>
+                        {{ color.name }}
+                    </div>
+                </div>
             </div>
             <div>
                 <!-- price, counter, & bubtton -->
