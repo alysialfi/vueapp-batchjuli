@@ -76,7 +76,10 @@
                 <div class="text-xl font-semibold mt-10">Subtotal: ${{ price * amount }}</div>
                 <div class="flex w-full justify-between items-center gap-5 mt-2 mr-5">
                     <button class="text-center w-full bg-black text-white py-4">Buy Now</button>
-                    <button @click="addToCart()" class="text-center w-full bg-black text-white py-4">Add To Cart</button>
+                    <button v-on:click="addToCart()" class="text-center w-full bg-black text-white py-4">Add To Cart</button>
+                    <!-- <button @click="addToCart()" class="text-center w-full bg-black text-white py-4">Add To Cart</button> -->
+                    <!-- <button @input="addToCart()" class="text-center w-full bg-black text-white py-4">Add To Cart</button>
+                    <button v-on:input="addToCart()" class="text-center w-full bg-black text-white py-4">Add To Cart</button> -->
                 </div>
             </div>
         </div>
